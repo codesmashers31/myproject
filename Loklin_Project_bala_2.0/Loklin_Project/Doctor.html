@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Doctors - Locklin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="icon" href="images/loklin.png">
+</head>
+<body class="bg-light">
+    
+     <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <img src="images/loklin.png" alt="loklin" width="50px" height="50px">
+            <a class="navbar-brand fw-bold fs-3 d-flex align-items-center mx-2" href="index.html">
+               LOKLIN
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-cogs me-1"></i> Services
+             </a>
+               <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                 <li>
+                    <a class="dropdown-item" href="Doctor.html">
+                      <i class="fas fa-user-md me-2"></i> Doctors
+                    </a>
+                 </li>
+                 <li>
+                    <a class="dropdown-item" href="Vendor.html">
+                      <i class="fas fa-store me-2"></i> Vendors
+                   </a>
+                 </li>
+               </ul>
+           </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html"><i class="fas fa-info-circle me-1"></i> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i> Contact</a>
+                    </li>
+                </ul>
+            </div>    
+        </div>   
+      </nav>
+    </header>
+    
+    <section class="bg-white">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1 class="display-4 fw-bold mb-4 text-primary">
+                    Find the Best Doctors in <span class="text-info">Pondicherry</span>
+                </h1>
+                <p class="lead mb-5 text-muted">24/7 access to qualified medical professionals across all specialties</p>
+                
+                <form action="Vendor.html" class="mb-5">
+                    <div class="input-group input-group-lg shadow rounded-pill">
+                        <input type="text" class="form-control border-primary border-2 rounded-start-pill py-3 px-3 px-lg-4" placeholder="Search doctors, specialties, clinics...">
+                        <button class="btn btn-primary px-3 px-lg-4 rounded-end-pill" type="submit">
+                            <i class="fas fa-search me-2"></i> 
+                            <span class="d-none d-sm-inline">Find Doctors</span>
+                            <span class="d-inline d-sm-none">Search</span>
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="d-flex flex-wrap justify-content-center gap-2">
+                    <span class="badge bg-white text-dark p-2 shadow-sm border border-1">
+                        <i class="fas fa-heartbeat text-danger me-1"></i> Cardiologists
+                    </span>
+                    <span class="badge bg-white text-dark p-2 shadow-sm border border-1">
+                        <i class="fas fa-brain text-info me-1"></i> Neurologists
+                    </span>
+                    <span class="badge bg-white text-dark p-2 shadow-sm border border-1">
+                        <i class="fas fa-bone text-warning me-1"></i> Orthopedics
+                    </span>
+                    <span class="badge bg-white text-dark p-2 shadow-sm border border-1">
+                        <i class="fas fa-baby text-success me-1"></i> Pediatricians
+                    </span>
+                    <span class="badge bg-white text-dark p-2 shadow-sm border border-1">
+                        <i class="fas fa-eye text-primary me-1"></i> Ophthalmologists
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="py-5 bg-light">
+    <div class="container">
+         
+           
+            <div class="container p-4">
+                   <div class="d-flex justify-content-between align-items-center mb-5 mx-2">
+                <h2 class="mb-0 text-primary fw-bold"><i class="fas fa-user-md me-2"></i> Available Doctors</h2>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-primary rounded-start-pill">
+                        <i class="fas fa-list me-1"></i> List View
+                    </button>
+                    <button type="button" class="btn btn-outline-primary rounded-end-pill">
+                        <i class="fas fa-map-marked-alt me-1"></i> Map View
+                    </button>
+                </div>
+            </div>
+              <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-success bg-gradient">
+                                <i class="fas fa-check-circle me-1"></i> Available
+                            </span>
+                        </div>
+                        <div class="text-center pt-4">
+                            <div class="position-relative d-inline-block">
+                                <img src="https://assets.lybrate.com/img/documents/doctor/dp/c6363dcbcf2a34728d9118cd7dab4063/Dermatology-JudeDileep-Pondicherry-e39414.jpg" 
+                                     class="rounded-circle border border-3 border-primary shadow" width="120" height="120" alt="Dr. Rajesh Kumar">
+                                <span class="position-absolute bottom-0 end-0 badge bg-warning text-dark rounded-pill shadow-sm">
+                                    <i class="fas fa-star"></i> 4.8
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title mb-1 fw-bold">Dr. Rajesh Kumar</h5>
+                            <p class="text-muted mb-2"><i class="fas fa-certificate text-info me-1"></i> General Physician</p>
+                            <p class="text-primary fw-bold mb-3">ABC Multi-Specialty Clinic</p>
+                            
+                            <div class="d-flex flex-column gap-2 mb-3">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-map-marker-alt text-muted me-2"></i>
+                                    <small class="text-muted">MG Road, Pondicherry</small>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-clock text-muted me-2"></i>
+                                    <small class="text-muted">Mon-Sat: 9AM - 9PM</small>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-rupee-sign text-muted me-2"></i>
+                                    <small class="text-muted">₹500 Consultation</small>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <button class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#bookDoctorModal">
+                                     <i class="fas fa-calendar-check me-1"></i> Book
+                                </button>
+
+                                <button class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-eye me-1"></i> View
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-directions me-1"></i> Map
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-danger bg-gradient">
+                                <i class="fas fa-clock me-1"></i> Closed Now
+                            </span>
+                        </div>
+                        <div class="text-center pt-4">
+                            <div class="position-relative d-inline-block">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTgeYtwhW7Qq05Vv4T0beJ-p8jsQY9Sugzhg&s" 
+                                     class="rounded-circle border border-3 border-primary shadow" width="120" height="120" alt="Dr. Priya Menon">
+                                <span class="position-absolute bottom-0 end-0 badge bg-warning text-dark rounded-pill shadow-sm">
+                                    <i class="fas fa-star"></i> 4.9
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title mb-1 fw-bold">Dr. Priya Menon</h5>
+                            <p class="text-muted mb-2"><i class="fas fa-certificate text-info me-1"></i> Dentist</p>
+                            <p class="text-primary fw-bold mb-3">Pondy Dental Care</p>
+                            
+                            <div class="d-flex flex-column gap-2 mb-3">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-map-marker-alt text-muted me-2"></i>
+                                    <small class="text-muted">White Town, Pondicherry</small>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-clock text-muted me-2"></i>
+                                    <small class="text-muted">Mon-Fri: 10AM - 8PM</small>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-rupee-sign text-muted me-2"></i>
+                                    <small class="text-muted">₹700 Consultation</small>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <button class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#bookDoctorModal">
+                                     <i class="fas fa-calendar-check me-1"></i> Book
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-eye me-1"></i> View
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-directions me-1"></i> Map
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow border-primary border-2">
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-success bg-gradient">
+                                <i class="fas fa-check-circle me-1"></i> Available
+                            </span>
+                        </div>
+                        <div class="position-absolute top-0 start-0 m-3">
+                            <span class="badge bg-warning text-dark bg-gradient">
+                                <i class="fas fa-crown me-1"></i> Featured
+                            </span>
+                        </div>
+                        <div class="text-center pt-4">
+                            <div class="position-relative d-inline-block">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI7sHWGuNelxdj2MQdRxuNRdcnB1SujJPFUg&s" 
+                                     class="rounded-circle border border-3 border-primary shadow" width="120" height="120" alt="Dr. Arun Patel">
+                                <span class="position-absolute bottom-0 end-0 badge bg-warning text-dark rounded-pill shadow-sm">
+                                    <i class="fas fa-star"></i> 5.0
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title mb-1 fw-bold">Dr. Arun Patel</h5>
+                            <p class="text-muted mb-2"><i class="fas fa-certificate text-info me-1"></i> Cardiologist</p>
+                            <p class="text-primary fw-bold mb-3">Pondy Heart Center</p>
+                            
+                            <div class="d-flex flex-column gap-2 mb-3">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-map-marker-alt text-muted me-2"></i>
+                                    <small class="text-muted">Lawspet, Pondicherry</small>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-clock text-muted me-2"></i>
+                                    <small class="text-muted">Mon-Sat: 8AM - 8PM</small>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-rupee-sign text-muted me-2"></i>
+                                    <small class="text-muted">₹1200 Consultation</small>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <button class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#bookDoctorModal">
+                                     <i class="fas fa-calendar-check me-1"></i> Book
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-eye me-1"></i> View
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-directions me-1"></i> Map
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-success bg-gradient">
+                                <i class="fas fa-check-circle me-1"></i> Available
+                            </span>
+                        </div>
+                        <div class="text-center pt-4">
+                            <div class="position-relative d-inline-block">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1byDFSsPS6LJc608MGxnk4eB9Zk2kWboQ2Q&s" 
+                                     class="rounded-circle border border-3 border-primary shadow" width="120" height="120" alt="Dr. Anjali Sharma">
+                                <span class="position-absolute bottom-0 end-0 badge bg-warning text-dark rounded-pill shadow-sm">
+                                    <i class="fas fa-star"></i> 4.7
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title mb-1 fw-bold">Dr. Anjali Sharma</h5>
+                            <p class="text-muted mb-2"><i class="fas fa-certificate text-info me-1"></i> Pediatrician</p>
+                            <p class="text-primary fw-bold mb-3">Little Stars Clinic</p>
+                            
+                            <div class="d-flex flex-column gap-2 mb-3">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-map-marker-alt text-muted me-2"></i>
+                                    <small class="text-muted">Muthialpet, Pondicherry</small>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-clock text-muted me-2"></i>
+                                    <small class="text-muted">Mon-Sat: 10AM - 6PM</small>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-rupee-sign text-muted me-2"></i>
+                                    <small class="text-muted">₹600 Consultation</small>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <button class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#bookDoctorModal">
+                                     <i class="fas fa-calendar-check me-1"></i> Book
+                                </button>
+
+                                <button class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-eye me-1"></i> View
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-directions me-1"></i> Map
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-success bg-gradient">
+                                <i class="fas fa-check-circle me-1"></i> Available
+                            </span>
+                        </div>
+                        <div class="text-center pt-4">
+                            <div class="position-relative d-inline-block">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm7ukOKjQlwo1V43lWTvdO6w_xAGvqay_jpQ&s" 
+                                     class="rounded-circle border border-3 border-primary shadow" width="120" height="120" alt="Dr. Sanjay Gupta">
+                                <span class="position-absolute bottom-0 end-0 badge bg-warning text-dark rounded-pill shadow-sm">
+                                    <i class="fas fa-star"></i> 4.5
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title mb-1 fw-bold">Dr. Sanjay Gupta</h5>
+                            <p class="text-muted mb-2"><i class="fas fa-certificate text-info me-1"></i> Dermatologist</p>
+                            <p class="text-primary fw-bold mb-3">Skin Care Specialists</p>
+                            
+                            <div class="d-flex flex-column gap-2 mb-3">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-map-marker-alt text-muted me-2"></i>
+                                    <small class="text-muted">MG Road, Pondicherry</small>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-clock text-muted me-2"></i>
+                                    <small class="text-muted">Mon-Sat: 9AM - 7PM</small>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-rupee-sign text-muted me-2"></i>
+                                    <small class="text-muted">₹800 Consultation</small>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <button class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#bookDoctorModal">
+                                     <i class="fas fa-calendar-check me-1"></i> Book
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-eye me-1"></i> View
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-directions me-1"></i> Map
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-danger bg-gradient">
+                                <i class="fas fa-clock me-1"></i> Closed Now
+                            </span>
+                        </div>
+                        <div class="text-center pt-4">
+                            <div class="position-relative d-inline-block">
+                                <img src="https://i0.wp.com/iswaryafertility.com/wp-content/uploads/2024/02/Dr-Ramya.webp" 
+                                     class="rounded-circle border border-3 border-primary shadow" width="120" height="120" alt="Dr. Nandini Reddy">
+                                <span class="position-absolute bottom-0 end-0 badge bg-warning text-dark rounded-pill shadow-sm">
+                                    <i class="fas fa-star"></i> 4.6
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title mb-1 fw-bold">Dr. Nandini Reddy</h5>
+                            <p class="text-muted mb-2"><i class="fas fa-certificate text-info me-1"></i> Gynecologist</p>
+                            <p class="text-primary fw-bold mb-3">Women's Wellness Center</p>
+                            
+                            <div class="d-flex flex-column gap-2 mb-3">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-map-marker-alt text-muted me-2"></i>
+                                    <small class="text-muted">White Town, Pondicherry</small>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-clock text-muted me-2"></i>
+                                    <small class="text-muted">Mon-Fri: 9AM - 5PM</small>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <i class="fas fa-rupee-sign text-muted me-2"></i>
+                                    <small class="text-muted">₹900 Consultation</small>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <button class="btn btn-primary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#bookDoctorModal">
+                                     <i class="fas fa-calendar-check me-1"></i> Book
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-eye me-1"></i> View
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-directions me-1"></i> Map
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+           
+            
+             
+             <div class="text-center mt-3">
+                 <button class="btn btn-lg btn-primary px-5 rounded-pill">
+                   <i class="fas fa-plus-circle me-2"></i> Load More Vendors
+                 </button>
+             </div>
+   
+      </div>
+    </section>
+
+    
+
+    <section class="py-5 mb-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-white border-0 shadow-lg h-100" style="background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-user-md fa-3x text-white-50"></i>
+                            </div>
+                            <h2 class="display-4 fw-bold mb-2">
+                                <span class="counter" data-target="150">0</span>+
+                            </h2>
+                            <p class="mb-0 fs-5">Verified Doctors</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-white border-0 shadow-lg h-100" style="background: linear-gradient(135deg, #198754 0%, #146c43 100%);">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-clinic-medical fa-3x text-white-50"></i>
+                            </div>
+                            <h2 class="display-4 fw-bold mb-2">
+                                <span class="counter" data-target="45">0</span>+
+                            </h2>
+                            <p class="mb-0 fs-5">Clinics</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-white border-0 shadow-lg h-100" style="background: linear-gradient(135deg, #0dcaf0 0%, #0ba5c5 100%);">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-stethoscope fa-3x text-white-50"></i>
+                            </div>
+                            <h2 class="display-4 fw-bold mb-2">
+                                <span class="counter" data-target="18">0</span>+
+                            </h2>
+                            <p class="mb-0 fs-5">Specialties</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-dark border-0 shadow-lg h-100" style="background: linear-gradient(135deg, #ffc107 0%, #e6a800 100%);">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-clock fa-3x" style="color: #212529;"></i>
+                            </div>
+                            <h2 class="display-4 fw-bold mb-2">
+                                <span class="counter" data-target="24">0</span>/7
+                            </h2>
+                            <p class="mb-0 fs-5">Hours Service</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary"><i class="fas fa-play-circle me-2"></i> How It Works</h2>
+                <p class="lead text-muted">Find and book appointments with doctors in just 3 simple steps</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                                <i class="fas fa-search fa-2x"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">1. Search Doctors</h4>
+                            <p class="text-muted">Find the right doctor by specialty, location, or availability.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 shadow h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-info bg-opacity-10 text-info rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                                <i class="fas fa-calendar-check fa-2x"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">2. Book Appointment</h4>
+                            <p class="text-muted">Select a convenient time slot and book instantly.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 shadow h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-success bg-opacity-10 text-success rounded-circle d-inline-flex align-items-center justify-content-center mb-4" style="width: 80px; height: 80px;">
+                                <i class="fas fa-user-md fa-2x"></i>
+                            </div>
+                            <h4 class="fw-bold mb-3">3. Visit Doctor</h4>
+                            <p class="text-muted">Get treated by qualified professionals at the scheduled time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold text-primary"><i class="fas fa-comments me-2"></i> What Our Patients Say</h2>
+                <p class="lead text-muted">Hear from people who found their perfect doctor through Loklin</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsEpn0l3oC0pis4zvs6-gGCvJAmzXuXYAzqg&s" class="rounded-circle me-3" width="50" height="50" alt="Patient">
+                                <div>
+                                    <h5 class="mb-0 fw-bold">Priya K.</h5>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-muted">"Found the perfect pediatrician for my child through Loklin. The booking process was seamless and the doctor was very professional."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 shadow h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVeYxR6rBYK129Zj1x1WpP3Ka4bXd9qnFEjiY7ppsOSFmwrVoG7slGJ0gkULYlBH_PvJ8&usqp=CAU" class="rounded-circle me-3" width="50" height="50" alt="Patient">
+                                <div>
+                                    <h5 class="mb-0 fw-bold">Rahul S.</h5>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-muted">"As a senior citizen, I appreciate how easy Loklin makes it to find doctors near me with availability that suits my schedule."</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card border-0 shadow h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://gemhospitals.com/uploads/doctors/1717575710_558eacd94f21e852f1b6.jpg" class="rounded-circle me-3" width="50" height="50" alt="Patient">
+                                <div>
+                                    <h5 class="mb-0 fw-bold">Vijay M.</h5>
+                                    <div class="text-warning">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-muted">"The doctor profiles with ratings and reviews helped me choose the right specialist for my condition. Saved me so much time!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container-fluid"> 
+            <div class="row g-0">
+                <div class="col-12 col-md-6">
+                    <img src="images/doctor.avif" alt="Pondicherry view" class="img-fluid w-100" style="height: 550px; object-fit: cover;">
+                </div>
+                <div class="col-12 col-md-6">
+                    <img src="images/doctor1.avif" alt="Pondicherry second view" class="img-fluid w-100" style="height: 550px; object-fit: cover;">
+                </div>
+            </div> 
+        </div>
+    </section>
+
+
+   
+   <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-hands-helping fs-2 me-2 text-white"></i>
+                        <span class="h4 mb-0">Loklin</span>
+                    </div>
+                    <p class="mt-4">
+                        Connecting Pondicherry residents with reliable local services since 2025. 
+                        Our mission is to make essential services accessible to everyone.
+                    </p>
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-md btn-outline-light rounded-circle me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-md btn-outline-light rounded-circle me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-md btn-outline-light rounded-circle me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-md btn-outline-light rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-uppercase text-white mb-4">Explore</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="Doctor.html" class="text-white text-decoration-none">Doctors</a></li>
+                        <li class="mb-2"><a href="Vendor.html" class="text-white text-decoration-none">Vendors</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-uppercase text-white mb-4">Contact</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-map-marker-alt mt-1 me-2 text-white"></i>
+                            <span>kanniyakovil, Pondicherry</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-phone me-2 text-white"></i>
+                            <span>+91 9487615909</span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="fas fa-envelope me-2 text-white"></i>
+                            <span>Loklin@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-uppercase text-white mb-4">Newsletter</h5>
+                    <p class="mb-3">
+                        Subscribe for updates on new services and special offers.
+                    </p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control border-secondary" placeholder="Your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <small>We'll never share your email.</small>
+                </div>
+            </div>
+
+            <hr class="mt-5 mb-4 bg-secondary">
+
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3">
+                    <p class="mb-0 small">&copy; 2025 Loklin. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item mx-2">•</li>
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none small">Privacy Policy</a></li>
+                        <li class="list-inline-item mx-2">•</li>
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none small">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    <!-- Booking Modal -->
+<div class="modal fade" id="bookDoctorModal" tabindex="-1" aria-labelledby="bookDoctorModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="bookDoctorModalLabel">
+          <i class="bi bi-calendar-check me-2"></i> Book Doctor
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Patient Name</label>
+              <input type="text" class="form-control" placeholder="Enter full name">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Doctor</label>
+              <input type="text" class="form-control" placeholder="Selected doctor name">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Date</label>
+              <input type="date" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Time</label>
+              <input type="time" class="form-control">
+            </div>
+            <div class="col-12">
+              <label class="form-label">Reason / Note</label>
+              <textarea class="form-control" rows="2" placeholder="Optional note..."></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <!-- Simulates "Apply & Add" -->
+        <a href="#bookingList" class="btn btn-primary" data-bs-dismiss="modal">Apply</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

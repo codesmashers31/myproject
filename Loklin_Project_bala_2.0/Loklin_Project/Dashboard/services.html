@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loklin - Services Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <link rel="icon" href="../images/loklin.png" />
+   <style>
+  .hover-bg:hover {
+    background-color: rgba(13, 110, 253, 0.25);
+  }
+  body {
+    overflow: hidden;
+  }
+  .sidebar {
+    height: 100vh;
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+  }
+  main {
+    height: 100vh;
+    overflow-y: auto;
+  }
+</style>
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="../images/loklin.png" alt="Loklin" width="30" height="30" class="me-2">
+        Loklin Admin
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      </button>
+<div class="collapse navbar-collapse" id="navbarNav">
+  <ul class="navbar-nav ms-auto">
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown">
+        <div class="position-relative">
+          <img src="../images/myimage.png" alt="Profile" class="rounded-circle me-2" width="30" height="30" id="profilePic">
+          <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white" style="width: 10px; height: 10px;"></span>
+        </div>
+        <span>Admin</span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end shadow">
+        <li>
+          <label class="dropdown-item mb-0" for="profileImageInput" style="cursor: pointer;">
+            <i class="bi bi-camera-fill text-primary me-2"></i> Change Photo
+          </label>
+          <input type="file" id="profileImageInput" accept="image/*" style="display: none;">
+        </li>
+        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">
+          <i class="bi bi-person-fill text-info me-2"></i> My Profile
+        </a></li>
+        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#settingsModal">
+          <i class="bi bi-gear-fill text-warning me-2"></i> Settings
+        </a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item text-danger" href="../login.html">
+          <i class="bi bi-box-arrow-right me-2"></i> Logout
+        </a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+  <div class="row flex-nowrap">
+<div class="col-md-3 col-lg-2 bg-dark sidebar collapse show" id="sidebarMenu">
+      <div class="position-sticky pt-3">
+
+    <h6 class="text-white-50 px-3 text-uppercase small">Main</h6>
+    <ul class="nav flex-column mb-3">
+      <li class="nav-item">
+        <a class="nav-link text-white d-flex align-items-center hover-bg" href="Dashboard.html">
+          <i class="bi bi-speedometer2 me-2 fs-5"></i> Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white d-flex align-items-center hover-bg" href="users.html">
+          <i class="bi bi-people me-2 fs-5"></i> Users
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white d-flex align-items-center hover-bg" href="roles.html">
+          <i class="bi bi-shield-lock me-2 fs-5"></i> Roles
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white d-flex align-items-center hover-bg" href="permissions.html">
+          <i class="bi bi-collection me-2 fs-5"></i> Permissions
+        </a>
+      </li>
+    </ul>
+
+    <h6 class="text-white-50 px-3 text-uppercase small">Services</h6>
+    <ul class="nav flex-column mb-3">
+      <li class="nav-item">
+        <a class="nav-link text-white d-flex align-items-center hover-bg" href="categories.html">
+          <i class="bi bi-tags me-2 fs-5"></i> Categories
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white d-flex align-items-center bg-primary hover-bg" href="services.html">
+          <i class="bi bi-tools me-2 fs-5"></i> Services
+        </a>
+      </li>
+    </ul>
+
+    <h6 class="text-white-50 px-3 text-uppercase small">Bookings</h6>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link text-white d-flex align-items-center hover-bg" href="bookings.html">
+          <i class="bi bi-journal-text me-2 fs-5"></i> All Bookings
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white d-flex align-items-center hover-bg" href="completed.html">
+          <i class="bi bi-check-circle me-2 fs-5"></i> Completed
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white d-flex align-items-center hover-bg" href="pending.html">
+          <i class="bi bi-hourglass me-2 fs-5"></i> Pending
+        </a>
+      </li>
+    </ul>
+
+    <hr class="border-secondary mt-4">
+    <div class="text-center">
+      <a href="../login.html" class="btn btn-outline-light btn-sm w-75">
+        <i class="bi bi-box-arrow-right me-1"></i> Logout
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+    <main class="col-md-9 col-lg-10 px-4 py-4 bg-light">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 class="fw-bold"><i class="bi bi-tools me-2"></i> Services Management</h2>
+          <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#addServiceModal"><i class="bi bi-plus-circle me-1"></i> Add Service</button>
+        </div>
+
+        <ul class="nav nav-tabs mb-4" id="servicesTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="doctor-tab" data-bs-toggle="tab" data-bs-target="#doctor-services" type="button" role="tab">Doctor Services</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="vendor-tab" data-bs-toggle="tab" data-bs-target="#vendor-services" type="button" role="tab">Vendor Services</button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="servicesTabContent">
+       
+          <div class="tab-pane fade show active" id="doctor-services" role="tabpanel">
+            <div class="card border-0 shadow-sm mb-4">
+              <div class="card-header bg-primary text-white">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5 class="mb-0">Medical Services</h5>
+                  <div class="input-group input-group-sm" style="width: 250px;">
+                    <input type="text" class="form-control" placeholder="Search services...">
+                    <button class="btn btn-light" type="button"><i class="bi bi-search"></i></button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Service</th>
+                        <th>Category</th>
+                        <th>Provider</th>
+                        <th>Price</th>
+                        <th>Duration</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="bg-danger bg-opacity-10 text-danger rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
+                              <i class="bi bi-heart-pulse"></i>
+                            </div>
+                            <div>
+                              <div>Cardiac Consultation</div>
+                              <small class="text-muted">Heart health checkup</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>Cardiology</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle me-2" width="30" height="30" alt="User">
+                            <span>Dr. John Doe</span>
+                          </div>
+                        </td>
+                        <td>₹1200</td>
+                        <td>30 mins</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                          <td>
+  <div class="dropdown">
+    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+      <i class="bi bi-gear"></i>
+    </button>
+    <ul class="dropdown-menu">
+      <li>
+        <label for="uploadPhoto1" class="dropdown-item" style="cursor: pointer;">
+          <i class="bi bi-camera me-2"></i> Change Photo
+        </label>
+        <input type="file" class="d-none" id="uploadPhoto1" accept="image/*">
+      </li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-lock me-2"></i>Reset Password</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+    </ul>
+  </div>
+</td>
+
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
+                              <i class="bi bi-tooth"></i>
+                            </div>
+                            <div>
+                              <div>Dental Checkup</div>
+                              <small class="text-muted">Oral examination</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>Dentistry</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle me-2" width="30" height="30" alt="User">
+                            <span>Dr. Jane Smith</span>
+                          </div>
+                        </td>
+                        <td>₹700</td>
+                        <td>20 mins</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                          <td>
+  <div class="dropdown">
+    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+      <i class="bi bi-gear"></i>
+    </button>
+    <ul class="dropdown-menu">
+      <li>
+        <label for="uploadPhoto1" class="dropdown-item" style="cursor: pointer;">
+          <i class="bi bi-camera me-2"></i> Change Photo
+        </label>
+        <input type="file" class="d-none" id="uploadPhoto1" accept="image/*">
+      </li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-lock me-2"></i>Reset Password</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+    </ul>
+  </div>
+</td>
+
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
+                              <i class="bi bi-heart"></i>
+                            </div>
+                            <div>
+                              <div>General Health Check</div>
+                              <small class="text-muted">Full body checkup</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>General Medicine</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" class="rounded-circle me-2" width="30" height="30" alt="User">
+                            <span>Dr. Robert Johnson</span>
+                          </div>
+                        </td>
+                        <td>₹500</td>
+                        <td>45 mins</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                          <td>
+  <div class="dropdown">
+    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+      <i class="bi bi-gear"></i>
+    </button>
+    <ul class="dropdown-menu">
+      <li>
+        <label for="uploadPhoto1" class="dropdown-item" style="cursor: pointer;">
+          <i class="bi bi-camera me-2"></i> Change Photo
+        </label>
+        <input type="file" class="d-none" id="uploadPhoto1" accept="image/*">
+      </li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-lock me-2"></i>Reset Password</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+    </ul>
+  </div>
+</td>
+
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="bg-info bg-opacity-10 text-info rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
+                              <i class="bi bi-emoji-smile"></i>
+                            </div>
+                            <div>
+                              <div>Pediatric Consultation</div>
+                              <small class="text-muted">Child health checkup</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>Pediatrics</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="rounded-circle me-2" width="30" height="30" alt="User">
+                            <span>Dr. Sarah Williams</span>
+                          </div>
+                        </td>
+                        <td>₹600</td>
+                        <td>25 mins</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                          <td>
+  <div class="dropdown">
+    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+      <i class="bi bi-gear"></i>
+    </button>
+    <ul class="dropdown-menu">
+      <li>
+        <label for="uploadPhoto1" class="dropdown-item" style="cursor: pointer;">
+          <i class="bi bi-camera me-2"></i> Change Photo
+        </label>
+        <input type="file" class="d-none" id="uploadPhoto1" accept="image/*">
+      </li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+      <li><a class="dropdown-item" href="#"><i class="bi bi-lock me-2"></i>Reset Password</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+    </ul>
+  </div>
+</td>
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                  <div class="form-text">Showing 1 to 4 of 12 services</div>
+                  <nav>
+                    <ul class="pagination pagination-sm mb-0">
+                      <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+         
+          <div class="tab-pane fade" id="vendor-services" role="tabpanel">
+            <div class="card border-0 shadow-sm mb-4">
+              <div class="card-header bg-warning text-dark">
+                <div class="d-flex justify-content-between align-items-center">
+                  <h5 class="mb-0">Vendor Services</h5>
+                  <div class="input-group input-group-sm" style="width: 250px;">
+                    <input type="text" class="form-control" placeholder="Search services...">
+                    <button class="btn btn-light" type="button"><i class="bi bi-search"></i></button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Service</th>
+                        <th>Category</th>
+                        <th>Provider</th>
+                        <th>Price</th>
+                        <th>Duration</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
+                              <i class="bi bi-basket"></i>
+                            </div>
+                            <div>
+                              <div>Street Food</div>
+                              <small class="text-muted">Local delicacies</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>Food</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" class="rounded-circle me-2" width="30" height="30" alt="User">
+                            <span>Pondy Food Corner</span>
+                          </div>
+                        </td>
+                        <td>₹50-₹300</td>
+                        <td>15-30 mins</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td>
+                          <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                              <i class="bi bi-gear"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="bg-info bg-opacity-10 text-info rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
+                              <i class="bi bi-tools"></i>
+                            </div>
+                            <div>
+                              <div>Bicycle Repair</div>
+                              <small class="text-muted">Cycle maintenance</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>Repair</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" class="rounded-circle me-2" width="30" height="30" alt="User">
+                            <span>Mohan Cycle Repair</span>
+                          </div>
+                        </td>
+                        <td>₹100-₹500</td>
+                        <td>30-60 mins</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td>
+                          <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                              <i class="bi bi-gear"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
+                              <i class="bi bi-cart"></i>
+                            </div>
+                            <div>
+                              <div>Grocery Delivery</div>
+                              <small class="text-muted">Daily essentials</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>Grocery</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" class="rounded-circle me-2" width="30" height="30" alt="User">
+                            <span>White Town Grocery</span>
+                          </div>
+                        </td>
+                        <td>₹200-₹1000</td>
+                        <td>1-2 hours</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td>
+                          <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                              <i class="bi bi-gear"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="bg-warning bg-opacity-10 text-warning rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
+                              <i class="bi bi-scissors"></i>
+                            </div>
+                            <div>
+                              <div>Haircut</div>
+                              <small class="text-muted">Salon service</small>
+                            </div>
+                          </div>
+                        </td>
+                        <td>Beauty & Wellness</td>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/women/55.jpg" class="rounded-circle me-2" width="30" height="30" alt="User">
+                            <span>Lakme Salon</span>
+                          </div>
+                        </td>
+                        <td>₹300-₹800</td>
+                        <td>30-45 mins</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                        <td>
+                          <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                              <i class="bi bi-gear"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View</a></li>
+                              <li><a class="dropdown-item" href="#"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-3">
+                  <div class="form-text">Showing 1 to 4 of 15 services</div>
+                  <nav>
+                    <ul class="pagination pagination-sm mb-0">
+                      <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm">
+              <div class="card-header bg-danger text-white">
+                <h5 class="mb-0">Service Statistics</h5>
+              </div>
+              <div class="card-body">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="card border-primary border-2">
+                      <div class="card-body text-center">
+                        <h3 class="mb-1">27</h3>
+                        <small class="text-muted">Total Services</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card border-success border-2">
+                      <div class="card-body text-center">
+                        <h3 class="mb-1">12</h3>
+                        <small class="text-muted">Medical Services</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card border-warning border-2">
+                      <div class="card-body text-center">
+                        <h3 class="mb-1">15</h3>
+                        <small class="text-muted">Vendor Services</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card border-info border-2">
+                      <div class="card-body text-center">
+                        <h3 class="mb-1">8</h3>
+                        <small class="text-muted">Categories</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-header bg-danger text-white">
+                <h5 class="mb-0">Top Services</h5>
+              </div>
+              <div class="card-body">
+                <div class="list-group">
+                  <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                      <div class="bg-danger bg-opacity-10 text-danger rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                        <i class="bi bi-heart-pulse"></i>
+                      </div>
+                      <div>
+                        <h6 class="mb-0">Cardiac Consultation</h6>
+                        <small class="text-muted">Cardiology</small>
+                      </div>
+                    </div>
+                    <div class="text-end">
+                      <div class="fw-bold">₹1200</div>
+                      <small class="text-muted">12 bookings</small>
+                    </div>
+                  </div>
+                  <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                      <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                        <i class="bi bi-basket"></i>
+                      </div>
+                      <div>
+                        <h6 class="mb-0">Street Food</h6>
+                        <small class="text-muted">Food</small>
+                      </div>
+                    </div>
+                    <div class="text-end">
+                      <div class="fw-bold">₹50-₹300</div>
+                      <small class="text-muted">18 bookings</small>
+                    </div>
+                  </div>
+                  <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                      <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                        <i class="bi bi-tooth"></i>
+                      </div>
+                      <div>
+                        <h6 class="mb-0">Dental Checkup</h6>
+                        <small class="text-muted">Dentistry</small>
+                      </div>
+                    </div>
+                    <div class="text-end">
+                      <div class="fw-bold">₹700</div>
+                      <small class="text-muted">10 bookings</small>
+                    </div>
+                  </div>
+                  <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                      <div class="bg-info bg-opacity-10 text-info rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                        <i class="bi bi-tools"></i>
+                      </div>
+                      <div>
+                        <h6 class="mb-0">Bicycle Repair</h6>
+                        <small class="text-muted">Repair</small>
+                      </div>
+                    </div>
+                    <div class="text-end">
+                      <div class="fw-bold">₹100-₹500</div>
+                      <small class="text-muted">7 bookings</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="addServiceModalLabel">Create New Service</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="serviceName" class="form-label">Service Name</label>
+                <input type="text" class="form-control" id="serviceName" placeholder="e.g., Cardiac Consultation" required>
+              </div>
+              <div class="col-md-6">
+                <label for="serviceType" class="form-label">Service Type</label>
+                <select class="form-select" id="serviceType" required>
+                  <option value="">Select Type</option>
+                  <option value="medical">Medical</option>
+                  <option value="vendor">Vendor</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="serviceCategory" class="form-label">Category</label>
+                <select class="form-select" id="serviceCategory" required>
+                  <option value="">Select Category</option>
+                  <option value="cardiology">Cardiology</option>
+                  <option value="dentistry">Dentistry</option>
+                  <option value="food">Food</option>
+                  <option value="repair">Repair</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="serviceProvider" class="form-label">Provider</label>
+                <select class="form-select" id="serviceProvider" required>
+                  <option value="">Select Provider</option>
+                  <option value="doctor1">Dr. John Doe</option>
+                  <option value="doctor2">Dr. Jane Smith</option>
+                  <option value="vendor1">Pondy Food Corner</option>
+                  <option value="vendor2">Mohan Cycle Repair</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="servicePrice" class="form-label">Price (₹)</label>
+                <input type="number" class="form-control" id="servicePrice" placeholder="e.g., 500" required>
+              </div>
+              <div class="col-md-6">
+                <label for="serviceDuration" class="form-label">Duration (minutes)</label>
+                <input type="number" class="form-control" id="serviceDuration" placeholder="e.g., 30" required>
+              </div>
+              <div class="col-12">
+                <label for="serviceDescription" class="form-label">Description</label>
+                <textarea class="form-control" id="serviceDescription" rows="3"></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger">Create Service</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- My Profile Modal -->
+<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="profileModalLabel">
+          <i class="bi bi-person-circle me-2"></i> My Profile
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <!-- Left: Profile Picture + Stats -->
+          <div class="col-md-4 text-center">
+            <img src="../images/myimage.png" alt="Profile" class="rounded-circle shadow mb-3" width="150" height="150">
+            <div class="card border-primary">
+              <div class="card-header bg-primary text-white">
+                <i class="bi bi-info-circle me-1"></i> Quick Stats
+              </div>
+              <div class="card-body">
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Last Login:</span>
+                  <span class="fw-bold">Today, 10:45 AM</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Account Created:</span>
+                  <span class="fw-bold">15 Oct 2023</span>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span>Role:</span>
+                  <span class="badge bg-primary">Administrator</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Profile Details as plain text -->
+          <div class="col-md-8">
+            <div class="card border-0">
+              <div class="card-body">
+                <!-- Personal Info -->
+                <h5 class="border-bottom pb-2 mb-3">
+                  <i class="bi bi-person-lines-fill text-primary me-2"></i> Personal Information
+                </h5>
+                <div class="row mb-2">
+                  <div class="col-md-6"><strong>First Name:</strong> Admin</div>
+                  <div class="col-md-6"><strong>Last Name:</strong> User</div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-md-6"><strong>Email:</strong> admin@loklin.com</div>
+                  <div class="col-md-6"><strong>Phone:</strong> +91 9876543210</div>
+                </div>
+
+                <!-- Address -->
+                <h5 class="border-bottom pb-2 mt-4 mb-3">
+                  <i class="bi bi-geo-alt-fill text-primary me-2"></i> Address
+                </h5>
+                <div class="mb-2"><strong>Street:</strong> 123 Admin Street</div>
+                <div class="row">
+                  <div class="col-md-6"><strong>City:</strong> Pondicherry</div>
+                  <div class="col-md-6"><strong>Postal Code:</strong> 605001</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- End row -->
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Settings Modal -->
+<div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-gradient bg-warning text-dark">
+        <h5 class="modal-title" id="settingsModalLabel">
+          <i class="bi bi-sliders text-dark me-2"></i>Account Settings
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <div class="row g-0">
+          <!-- Sidebar Navigation -->
+          <div class="col-md-3 bg-light">
+            <div class="nav flex-column nav-pills p-3" id="settingsTab" role="tablist" aria-orientation="vertical">
+              <button class="nav-link active text-start d-flex align-items-center mb-2" id="account-tab" data-bs-toggle="pill" data-bs-target="#account" type="button">
+                <i class="bi bi-person-gear me-2"></i> Account
+              </button>
+              <button class="nav-link text-start d-flex align-items-center mb-2" id="security-tab" data-bs-toggle="pill" data-bs-target="#security" type="button">
+                <i class="bi bi-shield-lock me-2"></i> Security
+              </button>
+              <button class="nav-link text-start d-flex align-items-center mb-2" id="notifications-tab" data-bs-toggle="pill" data-bs-target="#notifications" type="button">
+                <i class="bi bi-bell me-2"></i> Notifications
+              </button>
+              <button class="nav-link text-start d-flex align-items-center mb-2" id="privacy-tab" data-bs-toggle="pill" data-bs-target="#privacy" type="button">
+                <i class="bi bi-lock me-2"></i> Privacy
+              </button>
+              <button class="nav-link text-start d-flex align-items-center mb-2" id="billing-tab" data-bs-toggle="pill" data-bs-target="#billing" type="button">
+                <i class="bi bi-credit-card me-2"></i> Billing
+              </button>
+              <button class="nav-link text-start d-flex align-items-center" id="integrations-tab" data-bs-toggle="pill" data-bs-target="#integrations" type="button">
+                <i class="bi bi-plug me-2"></i> Integrations
+              </button>
+            </div>
+          </div>
+          
+          <!-- Content Area -->
+          <div class="col-md-9">
+            <div class="tab-content p-4" id="settingsTabContent">
+              <!-- Account Tab -->
+<div class="tab-pane fade show active" id="account" role="tabpanel">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h5 class="fw-bold mb-0"><i class="bi bi-person-gear text-primary me-2"></i>Account Settings</h5>
+    <span class="badge bg-primary">Admin</span>
+  </div>
+
+  <!-- Profile Information -->
+  <div class="card border-0 shadow-sm mb-4">
+    <div class="card-header bg-light">
+      <h6 class="mb-0"><i class="bi bi-person-circle me-2"></i>Profile Information</h6>
+    </div>
+    <div class="card-body">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-control" value="Admin">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-control" value="User">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" value="admin@loklin.com">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Phone</label>
+          <input type="tel" class="form-control" value="+91 9876543210">
+        </div>
+        <div class="col-12">
+          <label class="form-label">Profile Picture</label>
+          <div class="d-flex align-items-center">
+            <img src="../images/myimage.png" class="rounded-circle me-3" width="60" height="60" alt="Profile">
+            <div>
+              <button class="btn btn-sm btn-outline-primary me-2">
+                <i class="bi bi-upload me-1"></i>Upload New
+              </button>
+              <button class="btn btn-sm btn-outline-danger">
+                <i class="bi bi-trash me-1"></i>Remove
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ Address Section Added -->
+        <div class="col-12 pt-3 border-top">
+          <h6><i class="bi bi-geo-alt-fill text-primary me-2"></i>Address</h6>
+        </div>
+        <div class="col-12">
+          <label class="form-label">Street</label>
+          <input type="text" class="form-control" value="123 Admin Street">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">City</label>
+          <input type="text" class="form-control" value="Pondicherry">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Postal Code</label>
+          <input type="text" class="form-control" value="605001">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Language & Region -->
+  <div class="card border-0 shadow-sm mb-4">
+    <div class="card-header bg-light">
+      <h6 class="mb-0"><i class="bi bi-globe me-2"></i>Language & Region</h6>
+    </div>
+    <div class="card-body">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Language</label>
+          <select class="form-select">
+            <option selected>English</option>
+            <option>தமிழ் (Tamil)</option>
+            <option>हिन्दी (Hindi)</option>
+            <option>తెలుగు (Telugu)</option>
+            <option>മലയാളം (Malayalam)</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Time Zone</label>
+          <select class="form-select">
+            <option selected>(UTC+5:30) Chennai, Kolkata, Mumbai, New Delhi</option>
+            <option>(UTC+5:45) Kathmandu</option>
+            <option>(UTC+4:00) Dubai</option>
+            <option>(UTC+8:00) Singapore</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Theme Preferences -->
+  <div class="card border-0 shadow-sm">
+    <div class="card-header bg-light">
+      <h6 class="mb-0"><i class="bi bi-palette me-2"></i>Theme Preferences</h6>
+    </div>
+    <div class="card-body">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="card border-2 h-100 text-center">
+            <div class="card-body">
+              <i class="bi bi-sun-fill text-warning fs-3 mb-2"></i>
+              <h6 class="card-title">Light Theme</h6>
+              <div class="form-check d-flex justify-content-center">
+                <input class="form-check-input" type="radio" name="theme" id="lightTheme" checked>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-2 h-100 text-center">
+            <div class="card-body">
+              <i class="bi bi-moon-fill text-secondary fs-3 mb-2"></i>
+              <h6 class="card-title">Dark Theme</h6>
+              <div class="form-check d-flex justify-content-center">
+                <input class="form-check-input" type="radio" name="theme" id="darkTheme">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-2 h-100 text-center">
+            <div class="card-body">
+              <i class="bi bi-laptop text-primary fs-3 mb-2"></i>
+              <h6 class="card-title">System Default</h6>
+              <div class="form-check d-flex justify-content-center">
+                <input class="form-check-input" type="radio" name="theme" id="systemTheme">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+              
+              <!-- Security Tab -->
+              <div class="tab-pane fade" id="security" role="tabpanel">
+                <h5 class="fw-bold mb-4"><i class="bi bi-shield-lock text-primary me-2"></i>Security Settings</h5>
+                
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-key me-2"></i>Password</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                      <i class="bi bi-check-circle-fill me-2"></i>
+                      <div>
+                        Your password was last changed <strong>15 days ago</strong>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary">
+                      <i class="bi bi-arrow-repeat me-1"></i> Change Password
+                    </button>
+                  </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-shield-check me-2"></i>Two-Factor Authentication</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-check form-switch mb-3">
+                      <input class="form-check-input" type="checkbox" role="switch" id="twoFactorSwitch">
+                      <label class="form-check-label fw-bold" for="twoFactorSwitch">Enable 2FA</label>
+                    </div>
+                    <p class="small text-muted">Two-factor authentication adds an extra layer of security to your account by requiring more than just a password to log in.</p>
+                    <div class="row g-3 mt-2">
+                      <div class="col-md-6">
+                        <div class="card border-0 bg-light h-100">
+                          <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                              <i class="bi bi-phone text-primary me-2"></i>
+                              <h6 class="mb-0">Authenticator App</h6>
+                            </div>
+                            <p class="small text-muted">Use an app like Google Authenticator or Authy to generate verification codes.</p>
+                            <button class="btn btn-sm btn-outline-primary">Set Up</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="card border-0 bg-light h-100">
+                          <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                              <i class="bi bi-envelope text-primary me-2"></i>
+                              <h6 class="mb-0">Email Verification</h6>
+                            </div>
+                            <p class="small text-muted">Receive verification codes via email when logging in.</p>
+                            <button class="btn btn-sm btn-outline-primary">Set Up</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-device-ssd me-2"></i>Active Sessions</h6>
+                  </div>
+                  <div class="card-body">
+                    <p class="small text-muted mb-3">This is a list of devices that have logged into your account. Revoke any sessions that you do not recognize.</p>
+                    <div class="list-group">
+                      <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex align-items-center">
+                            <i class="bi bi-laptop text-primary fs-4 me-3"></i>
+                            <div>
+                              <h6 class="mb-1">Windows 10, Chrome</h6>
+                              <small class="text-muted">Pondicherry, India • Today, 10:45 AM</small>
+                            </div>
+                          </div>
+                          <span class="badge bg-success">Current Session</span>
+                        </div>
+                      </div>
+                      <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex align-items-center">
+                            <i class="bi bi-phone text-info fs-4 me-3"></i>
+                            <div>
+                              <h6 class="mb-1">Android, Firefox</h6>
+                              <small class="text-muted">Chennai, India • Yesterday, 8:30 PM</small>
+                            </div>
+                          </div>
+                          <button class="btn btn-sm btn-outline-danger">Revoke</button>
+                        </div>
+                      </div>
+                      <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex align-items-center">
+                            <i class="bi bi-tablet text-secondary fs-4 me-3"></i>
+                            <div>
+                              <h6 class="mb-1">iPad, Safari</h6>
+                              <small class="text-muted">Bangalore, India • 3 days ago</small>
+                            </div>
+                          </div>
+                          <button class="btn btn-sm btn-outline-danger">Revoke</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Notifications Tab -->
+              <div class="tab-pane fade" id="notifications" role="tabpanel">
+                <h5 class="fw-bold mb-4"><i class="bi bi-bell text-primary me-2"></i>Notification Preferences</h5>
+                
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-envelope me-2"></i>Email Notifications</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="checkbox" id="emailAll" checked>
+                      <label class="form-check-label fw-bold" for="emailAll">Enable all email notifications</label>
+                    </div>
+                    <div class="ps-4">
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="emailNewsletter" checked>
+                        <label class="form-check-label" for="emailNewsletter">Newsletter and updates</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="emailSecurity" checked>
+                        <label class="form-check-label" for="emailSecurity">Security alerts</label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="emailBookings" checked>
+                        <label class="form-check-label" for="emailBookings">Booking confirmations</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="emailPromotions">
+                        <label class="form-check-label" for="emailPromotions">Promotional offers</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-bell me-2"></i>Push Notifications</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-check form-switch mb-3">
+                      <input class="form-check-input" type="checkbox" id="pushAll" checked>
+                      <label class="form-check-label fw-bold" for="pushAll">Enable all push notifications</label>
+                    </div>
+                    <div class="ps-4">
+                      <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="pushBookings" checked>
+                        <label class="form-check-label" for="pushBookings">New bookings</label>
+                      </div>
+                      <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="pushMessages" checked>
+                        <label class="form-check-label" for="pushMessages">Messages</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="pushUpdates">
+                        <label class="form-check-label" for="pushUpdates">System updates</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-chat-left-text me-2"></i>SMS Notifications</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-check form-switch mb-3">
+                      <input class="form-check-input" type="checkbox" id="smsAll">
+                      <label class="form-check-label fw-bold" for="smsAll">Enable SMS notifications</label>
+                    </div>
+                    <div class="ps-4">
+                      <div class="form-check form-switch mb-2">
+                        <input class="form-check-input" type="checkbox" id="smsUrgent">
+                        <label class="form-check-label" for="smsUrgent">Urgent alerts only</label>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="smsAppointments">
+                        <label class="form-check-label" for="smsAppointments">Appointment reminders</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Privacy Tab -->
+              <div class="tab-pane fade" id="privacy" role="tabpanel">
+                <h5 class="fw-bold mb-4"><i class="bi bi-lock text-primary me-2"></i>Privacy Settings</h5>
+                
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-eye me-2"></i>Profile Visibility</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="radio" name="visibility" id="visibilityPublic">
+                      <label class="form-check-label fw-bold" for="visibilityPublic">Public Profile</label>
+                      <p class="small text-muted">Your profile information will be visible to all users of the platform.</p>
+                    </div>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="radio" name="visibility" id="visibilityPrivate" checked>
+                      <label class="form-check-label fw-bold" for="visibilityPrivate">Private Profile</label>
+                      <p class="small text-muted">Only you and administrators can view your profile information.</p>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="visibility" id="visibilityCustom">
+                      <label class="form-check-label fw-bold" for="visibilityCustom">Custom Visibility</label>
+                      <p class="small text-muted">Choose exactly what information is visible to others.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-shield me-2"></i>Data Sharing</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="checkbox" id="shareAnalytics" checked>
+                      <label class="form-check-label fw-bold" for="shareAnalytics">Share analytics data</label>
+                      <p class="small text-muted">Help us improve our services by sharing anonymous usage data.</p>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="shareMarketing">
+                      <label class="form-check-label fw-bold" for="shareMarketing">Allow marketing communications</label>
+                      <p class="small text-muted">Receive offers and promotions from our partners.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-download me-2"></i>Data Export</h6>
+                  </div>
+                  <div class="card-body">
+                    <p class="small text-muted mb-3">You can request a copy of all your personal data stored in our systems.</p>
+                    <button class="btn btn-outline-primary">
+                      <i class="bi bi-download me-1"></i> Request Data Export
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Billing Tab -->
+              <div class="tab-pane fade" id="billing" role="tabpanel">
+                <h5 class="fw-bold mb-4"><i class="bi bi-credit-card text-primary me-2"></i>Billing & Payments</h5>
+                
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-credit-card-2-front me-2"></i>Payment Methods</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="list-group mb-3">
+                      <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex align-items-center">
+                            <i class="bi bi-credit-card-fill text-primary fs-4 me-3"></i>
+                            <div>
+                              <h6 class="mb-0">Visa ending in 4242</h6>
+                              <small class="text-muted">Expires 12/2025</small>
+                            </div>
+                          </div>
+                          <span class="badge bg-primary">Primary</span>
+                        </div>
+                      </div>
+                      <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex align-items-center">
+                            <i class="bi bi-paypal text-info fs-4 me-3"></i>
+                            <div>
+                              <h6 class="mb-0">PayPal</h6>
+                              <small class="text-muted">user@example.com</small>
+                            </div>
+                          </div>
+                          <button class="btn btn-sm btn-outline-secondary">Make Primary</button>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary">
+                      <i class="bi bi-plus-circle me-1"></i> Add Payment Method
+                    </button>
+                  </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-receipt me-2"></i>Billing History</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-sm">
+                        <thead>
+                          <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Receipt</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Nov 15, 2023</td>
+                            <td>Premium Subscription</td>
+                            <td>₹999.00</td>
+                            <td><span class="badge bg-success">Paid</span></td>
+                            <td><a href="#" class="btn btn-sm btn-outline-primary">View</a></td>
+                          </tr>
+                          <tr>
+                            <td>Oct 15, 2023</td>
+                            <td>Premium Subscription</td>
+                            <td>₹999.00</td>
+                            <td><span class="badge bg-success">Paid</span></td>
+                            <td><a href="#" class="btn btn-sm btn-outline-primary">View</a></td>
+                          </tr>
+                          <tr>
+                            <td>Sep 15, 2023</td>
+                            <td>Premium Subscription</td>
+                            <td>₹999.00</td>
+                            <td><span class="badge bg-success">Paid</span></td>
+                            <td><a href="#" class="btn btn-sm btn-outline-primary">View</a></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-gift me-2"></i>Subscription</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="alert alert-success" role="alert">
+                      <div class="d-flex align-items-center">
+                        <i class="bi bi-check-circle-fill me-2"></i>
+                        <div>
+                          <h6 class="mb-1">Premium Plan (Annual)</h6>
+                          <p class="mb-0">Your subscription will renew automatically on <strong>Dec 15, 2023</strong></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <button class="btn btn-outline-primary">
+                        <i class="bi bi-arrow-repeat me-1"></i> Change Plan
+                      </button>
+                      <button class="btn btn-outline-danger">
+                        <i class="bi bi-x-circle me-1"></i> Cancel Subscription
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Integrations Tab -->
+              <div class="tab-pane fade" id="integrations" role="tabpanel">
+                <h5 class="fw-bold mb-4"><i class="bi bi-plug text-primary me-2"></i>Integrations</h5>
+                
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-google me-2"></i>Google Workspace</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <div>
+                        <h6 class="mb-1">Google Calendar</h6>
+                        <p class="small text-muted mb-0">Sync your appointments with Google Calendar</p>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="googleCalendar" checked>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div>
+                        <h6 class="mb-1">Google Drive</h6>
+                        <p class="small text-muted mb-0">Backup your documents to Google Drive</p>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="googleDrive">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm mb-4">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-microsoft me-2"></i>Microsoft 365</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <div>
+                        <h6 class="mb-1">Outlook Calendar</h6>
+                        <p class="small text-muted mb-0">Sync your appointments with Outlook</p>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="outlookCalendar">
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div>
+                        <h6 class="mb-1">OneDrive</h6>
+                        <p class="small text-muted mb-0">Backup your documents to OneDrive</p>
+                      </div>
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="oneDrive">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm">
+                  <div class="card-header bg-light">
+                    <h6 class="mb-0"><i class="bi bi-slack me-2"></i>Other Integrations</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <div class="card border-0 bg-light h-100">
+                          <div class="card-body text-center">
+                            <i class="bi bi-slack text-primary fs-3 mb-2"></i>
+                            <h6 class="mb-2">Slack</h6>
+                            <p class="small text-muted mb-3">Get notifications in your Slack workspace</p>
+                            <button class="btn btn-sm btn-outline-primary">Connect</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="card border-0 bg-light h-100">
+                          <div class="card-body text-center">
+                            <i class="bi bi-zap text-warning fs-3 mb-2"></i>
+                            <h6 class="mb-2">Zapier</h6>
+                            <p class="small text-muted mb-3">Connect with 5000+ apps via Zapier</p>
+                            <button class="btn btn-sm btn-outline-primary">Connect</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

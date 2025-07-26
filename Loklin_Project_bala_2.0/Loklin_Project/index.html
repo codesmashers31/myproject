@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loklin - Find Local Services in Pondicherry</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link rel="icon" href="images/loklin.png">
+</head>
+<body>
+    
+    <header class="sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <img src="images/loklin.png" alt="loklin" width="50px" height="50px">
+      <a class="navbar-brand fw-bold fs-3 d-flex align-items-center mx-2" href="index.html">
+        LOKLIN
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> Home</a>
+          </li>
+          <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-cogs me-1"></i> Services
+             </a>
+               <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                 <li>
+                    <a class="dropdown-item" href="Doctor.html">
+                      <i class="fas fa-user-md me-2"></i> Doctors
+                    </a>
+                 </li>
+                 <li>
+                    <a class="dropdown-item" href="Vendor.html">
+                      <i class="fas fa-store me-2"></i> Vendors
+                   </a>
+                 </li>
+               </ul>
+           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html"><i class="fas fa-info-circle me-1"></i> About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i> Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registration.html"><i class="fas fa-clipboard-check me-1"></i> Apply</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-light ms-2" data-bs-toggle="modal" data-bs-target="#signupModal">
+              <i class="fas fa-sign-in-alt me-1"></i> Login
+            </a>
+          </li>
+        </ul>
+      </div>    
+    </div>   
+  </nav>
+</header>
+
+    <section class="py-4 py-md-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-3 mb-md-4">
+            <h1 class="display-4 fw-bold text-primary mb-2 mb-md-3">Pondicherry Health & Local Services Network</h1>
+            <h2 class="h4 h5-md text-muted mb-2 mb-md-3">Clinic Finder & Street Vendor Directory</h2>
+            <span class="badge bg-success fs-6 fs-md-5 rounded-pill px-3 px-md-4">Medical | Food Vendors | Local Services</span>
+        </div>
+
+        <form action="Doctor.html" class="mb-4 mb-md-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8 text-center">
+                    <p class="h5 text-secondary mb-3 mb-md-4">Connecting you with trusted medical clinics and authentic street food vendors across Pondicherry</p>
+                    <div class="input-group input-group-lg shadow rounded-pill mb-3">
+                        <input type="text" 
+                               class="form-control border-primary border-2 rounded-start-pill py-2 py-md-3 px-3 px-md-4" 
+                               placeholder="Search clinics, food stalls, pharmacies...">
+                        <button class="btn btn-primary px-3 px-md-4 rounded-end-pill" type="submit">
+                            <i class="fas fa-search me-1 me-md-2"></i>
+                            <span class="d-none d-sm-inline">Search</span>
+                            <span class="d-inline d-sm-none">Search</span>
+                        </button>
+                    </div>
+                    <small class="text-muted mt-1 mt-md-2 d-block">
+                        Try: <span class="d-none d-md-inline">"24/7 clinics", "nearby street food", "emergency doctors"</span>
+                        <span class="d-inline d-md-none">"clinics", "food"</span>
+                    </small>
+                </div>
+            </div>
+        </form>
+
+        <div class="row justify-content-center text-center g-2 g-md-3">
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="Doctor.html" class="btn btn-lg btn-primary w-100 shadow-sm rounded-pill py-2 py-md-3">
+                    <i class="fas fa-hospital me-1 me-md-2"></i> Medical Clinics
+                </a>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="Vendor.html" class="btn btn-lg btn-success w-100 shadow-sm rounded-pill py-2 py-md-3">
+                    <i class="fas fa-utensils me-1 me-md-2"></i> Food Vendors
+                </a>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <button id="bookBtn" class="btn btn-lg btn-warning w-100 shadow-sm rounded-pill py-2 py-md-3">
+                    <i class="fas fa-calendar-plus me-1 me-md-2"></i> <span class="d-none d-md-inline">Doctor</span> Appointments
+                </button>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <button id="orderBtn" class="btn btn-lg btn-info w-100 shadow-sm rounded-pill py-2 py-md-3">
+                    <i class="fas fa-map-marked-alt me-1 me-md-2"></i> Vendor <span class="d-none d-md-inline">Locations</span>
+                </button>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="Doctor.html" class="btn btn-lg btn-light w-100 shadow-sm rounded-pill py-2 py-md-3 border">
+                    <i class="fas fa-first-aid me-1 me-md-2"></i> Health Services
+                </a>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <a href="Vendor.html" class="btn btn-lg btn-secondary w-100 shadow-sm rounded-pill py-2 py-md-3">
+                    <i class="fas fa-store-alt me-1 me-md-2"></i> Local <span class="d-none d-md-inline">Businesses</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+   <section id="carouselSection" class="py-5">
+  <div class="container-fluid">
+    <div id="mainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner rounded-4 shadow-lg">
+
+        <div class="carousel-item active">
+          <img src="images/doctor.png" class="d-block w-100" alt="Local Doctor">
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded w-25 mx-auto border border-light">
+            <h5 class="text-white mt-3">Trusted Local Doctors</h5>
+            <p class="text-white">Connect with certified clinics across Pondicherry.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/food_street.png" class="d-block w-100" alt="Food Vendors">
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded w-25 mx-auto border border-light">
+            <h5 class="text-white mt-3">Street Food at Your Fingertips</h5>
+            <p class="text-white">Find the best street vendors near you.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/street.png" class="d-block w-100" alt="Local Markets">
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded w-25 mx-auto border border-light">
+            <h5 class="text-white mt-3">Vibrant Local Markets</h5>
+            <p class="text-white">Explore Pondicherry's bustling markets for fresh produce, handmade crafts, and unique souvenirs.</p>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/medical.png" class="d-block w-100" alt="Emergency Services">
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded w-25 mx-auto border border-light">
+            <h5 class="text-white mt-3">Emergency Support</h5>
+            <p class="text-white">Instant access to ambulance and medical help.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+
+
+    <section class="py-5 bg-white" id="services">
+        <div class="container-fluid">
+           <div class="text-center mb-5">
+              <h2 class="fw-bold">Our Services</h2>
+              <p class="text-muted">Explore the categories we cover for your everyday needs</p>
+           </div>
+        <div class="row g-4">
+           <div class="col-md-4">
+               <div class="card p-4 text-center shadow border-0 border-start border-primary border-4">
+                   <div class="card-body">
+                       <i class="fas fa-map-marked-alt fa-3x text-success mb-3"></i>
+                       <h4 class="card-title mt-2">Live Location Tracking</h4>
+                       <p class="card-text mb-3">Real-time maps show nearby services with directions</p>
+                   </div>
+               </div>
+           </div>
+           <div class="col-md-4">
+                <div class="card p-4 text-center shadow border-0 border-start border-success border-4">
+                    <div class="card-body">
+                       <i class="fas fa-pills fa-3x text-primary mb-3"></i>
+                       <h5 class="card-title mt-1">Pharmacy Delivery</h5>
+                       <p class="card-text">Order medicine online from local pharmacies and get it delivered fast.</p>
+                    </div>
+                </div>
+           </div>
+           <div class="col-md-4">
+               <div class="card p-4 text-center shadow border-0 border-start border-primary border-4">
+                    <div class="card-body">
+                       <i class="fas fa-home fa-3x text-danger mb-3"></i>
+                       <h5 class="card-title mt-1">Home Care</h5>
+                       <p class="card-text">Find certified professionals for home nursing, elder care and more.</p>
+                    </div>
+               </div>
+           </div>
+        </div>
+        <div class="row g-4 mt-3">
+           <div class="col-md-4">
+               <div class="card p-4 text-center shadow border-0 border-start border-success border-4">
+                    <div class="card-body mt-1">
+                      <i class="fas fa-utensils fa-2x text-success mb-3"></i>  
+                      <h5 class="card-title mt-3 mb-3">Food Vendors</h5>
+                      <p class="card-text mb-3">Discover local street food options</p>
+                    </div>
+               </div>
+           </div>
+           <div class="col-md-4">
+               <div class="card p-4 text-center shadow border-0 border-start border-primary border-4">
+                    <div class="card-body">
+                       <i class="fas fa-ambulance fa-3x text-warning mb-3"></i> 
+                       <h5 class="card-title mt-1">Emergency Services</h5>
+                       <p class="card-text">24/7 emergency medical services with rapid response teams.</p>
+                    </div>
+               </div>
+          </div>
+          <div class="col-md-4">
+               <div class="card p-4 text-center shadow border-0 border-start border-success border-4">
+                    <div class="card-body">
+                       <i class="fas fa-vials fa-3x text-success mb-3"></i> 
+                       <h5 class="card-title mt-1">Lab Tests</h5>
+                       <p class="card-text">Book diagnostic tests and view results directly through our portal.</p>
+                    </div>
+               </div>
+           </div>
+        </div>
+       </div>
+   </section>
+
+
+   <section class="py-2 mb-5">
+  <div class="container-fluid px-0"> 
+    <div class="row g-0">
+      <div class="col-12 col-md-6">
+        <img src="images/Promenade_Beach.png" alt="Pondicherry Promenade Beach with sunrise view" class="img-fluid w-100 h-100" style="height: 380px; object-fit: cover;">
+      </div>
+      
+      <div class="col-12 col-md-6">
+        <img src="images/French_colonial.png" alt="Colorful French colonial buildings in Pondicherry" class="img-fluid w-100 h-100" style="height: 380px; object-fit: cover;">
+      </div>
+    </div> 
+  </div>
+</section>
+
+
+   <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-hands-helping fs-2 me-2 text-white"></i>
+                        <span class="h4 mb-0">Loklin</span>
+                    </div>
+                    <p class="mt-4">
+                        Connecting Pondicherry residents with reliable local services since 2025. 
+                        Our mission is to make essential services accessible to everyone.
+                    </p>
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-md btn-outline-light rounded-circle me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-md btn-outline-light rounded-circle me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-md btn-outline-light rounded-circle me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-md btn-outline-light rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-uppercase text-white mb-4">Explore</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="Doctor.html" class="text-white text-decoration-none">Doctors</a></li>
+                        <li class="mb-2"><a href="Vendor.html" class="text-white text-decoration-none">Vendors</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+                        <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-uppercase text-white mb-4">Contact</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3 d-flex align-items-start">
+                            <i class="fas fa-map-marker-alt mt-1 me-2 text-white"></i>
+                            <span>kanniyakovil, Pondicherry</span>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="fas fa-phone me-2 text-white"></i>
+                            <span>+91 9487615909</span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="fas fa-envelope me-2 text-white"></i>
+                            <span>Loklin@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-uppercase text-white mb-4">Newsletter</h5>
+                    <p class="mb-3">
+                        Subscribe for updates on new services and special offers.
+                    </p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control border-secondary" placeholder="Your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <small>We'll never share your email.</small>
+                </div>
+            </div>
+
+            <hr class="mt-5 mb-4 bg-secondary">
+
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3">
+                    <p class="mb-0 small">&copy; 2025 Loklin. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item mx-2">•</li>
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none small">Privacy Policy</a></li>
+                        <li class="list-inline-item mx-2">•</li>
+                        <li class="list-inline-item"><a href="#" class="text-white text-decoration-none small">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 450px;">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0 text-primary">
+        <div class="w-100 text-center">
+          <h4 class="modal-title fw-bold">Become a Loklin Member</h4>
+          <p class="text-primary small mb-0">Start your personalized experience</p>
+        </div>
+      </div>
+
+      <div class="modal-body pt-3">
+        <form action="#">
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+              <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-phone"></i></span>
+              <input type="tel" class="form-control" id="phone" placeholder="Enter your number" required>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-lock"></i></span>
+              <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+              <button class="btn btn-outline-secondary" type="button" id="toggleLoginPassword">
+                <i class="fas fa-eye-slash"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <div class="input-group">
+              <span class="input-group-text"><i class="fas fa-lock"></i></span>
+              <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password" required>
+              <button class="btn btn-outline-secondary" type="button" id="toggleLoginPassword">
+                <i class="fas fa-eye-slash"></i>
+              </button>
+            </div>
+          </div>
+
+        
+          <button type="submit"
+            class="btn btn-success w-100 fw-bold mb-3"
+            data-bs-toggle="modal"
+            data-bs-target="#loginModal"
+            data-bs-dismiss="modal">
+            <i class="fas fa-user-plus me-2"></i>Sign Up
+          </button>
+
+          <div class="text-center">
+            Already have an account?
+            <a href="#" class="fw-bold text-decoration-none" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">
+              Login
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;">
+    <div class="modal-content">
+      
+      <div class="modal-header border-0 pb-0 text-primary">
+        <div class="w-100 text-center">
+          <h4 class="modal-title fw-bold">Loklin Secure Portal</h4>
+          <p class="text-primary small mb-0">Access your exclusive account</p>
+        </div>
+      </div>
+
+      <div class="modal-body pt-3">
+        <form action="index.html">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email Address</label>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" required>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password</label>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="fas fa-lock"></i>
+              </span>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+              <button class="btn btn-outline-secondary" type="button" id="toggleLoginPassword">
+                <i class="fas fa-eye-slash"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="rememberMe">
+              <label class="form-check-label small" for="rememberMe">Remember me</label>
+            </div>
+            <a href="#" class="small text-decoration-none">Forgot password?</a>
+          </div>
+          
+          <button type="submit" class="btn btn-primary w-100 py-2 mb-3 fw-bold">
+            <i class="fas fa-sign-in-alt me-2"></i>Login
+          </button>
+          
+          <div class="text-center mt-1">
+            Don't have an account? 
+            <a href="#" class="text-decoration-none fw-bold" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">
+              Sign up
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
